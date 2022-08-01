@@ -163,3 +163,6 @@ From the robustness of the different beta coefficients, we can see how the beta 
 ![](figs/robbetasignf.png)
 
 The second plot provides us with only significant beta coefficients and we can see that the variables our model predicted to be significant are: V4, V8, V10, V12, V13, V14 and V16. Only the variable V4 has a positive beta coefficient, meaning that an increase in this variable increases the probability of our transaction being fraudulent. The others have a average beta coefficient which is negative, meaning that they decrease the probability of our transaction being fraudulent.
+
+## Authors
+Ema Vargova, Luka Corsovic 
