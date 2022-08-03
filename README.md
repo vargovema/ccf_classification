@@ -24,7 +24,7 @@ The correlation plot below provides us with insights on how the different variab
 
 Since the data is highly unbalanced, we use undersampling to resample the data where we obtain training and test data sets. We use the training data sets to estimates 3 different models and predict the test data sets based on the models. For each model, we resample the data for $n$ amount of times in order get more reliable models and predictions. However, the predictions of response variable we get from the models are continuous variables $\hat Y_i^{cont}$ which we need to classify as either 0 or 1 to turn the continuous response variable into binary variable. To achieve that, we need use a threshold $\alpha$ based on which we classify the prediction $i$ as 0 if  $\hat Y_i^{cont}<\alpha$ and we classify the prediction $i$ as 1 if $\hat Y_i^{cont}≥\alpha$ where natural choice for the threshold is $\alpha = 0.5$.
 
-```
+```r
 resample_data <- function(data, n_success, ratio, response_variable = 1, 
                           success_value = "1", verbose = FALSE) {
   response <- data[[response_variable]]
@@ -84,7 +84,7 @@ Based on the lined out reasons, we believe the regularized logistic regression t
 
 Now we are going to run the regularized logistic regression in order to show the results, explain the significance of certain variables which the model will provide us with as well as the out of sample prediction performance of the model.
 
-```{r, echo=FALSE, message=FALSE, warning=FALSE, results='hide'}
+```r
 resampled_ccf <- resample_data(ccf, n_success = 300, ratio = 40, success_value = 1)
 train <- resampled_ccf$train
 test <- resampled_ccf$test
@@ -99,7 +99,7 @@ Hence, it is important to choose the right $\lambda$ value so that the model is 
 
 To outline the model, we shall firstly present three different methods of cross validation (using $cv.glmnet$ function) with which R provides us with, and see which one preforms the best, and that one we shall implement for further analysis.
 
-```
+```r
 fit.cv1 <- cv.glmnet(x = as.matrix(train[, -1]), y = train[, 1],
                      type.measure = "deviance", family = "binomial")
 
@@ -117,7 +117,7 @@ Overall, we choose to further analyze the area under the curve model as this mod
 
 ![](figs/robbetasignf.png) 
 
-```
+```r
 n_ests <- 10
 n_vars <- ncol(ccf)
 ratio <- 40
