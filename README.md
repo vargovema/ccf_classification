@@ -1,10 +1,21 @@
 # Detecting Fradulent Credit Card Transactions
 
+- [Outline of the problem](#outline-of-the-problem)
+- [Why is fraud detection relevant?](#why-is-fraud-detection-relevant)
+- [Descriptive analysis of the data set](#descriptive-analysis-of-the-data-set)
+- [Models used for testing](#models-used-for-testing)
+  - [Linear probability model](#linear-probability-model)
+  - [Logistic regression model](#logistic-regression-model)
+  - [Regularized logistic regression in Lagrangian form](#regularized-logistic-regression-in-lagrangian-form)
+  - [Estimation results](#estimation-results)
+- [Notes](#notes)
+- [Authors](#authors)
+
 ## Outline of the problem
 The task that was undertaken here was detecting fraudulent transactions, their type and frequency, by using different models and methods applied to a data set that has been given. By looking at all the past transactions and finding any anomalies or patterns, we were able to obtain valuable information that can be used in risk assessment and fraud prevention.
 
 
-## Why is fraud detection a relevant?
+## Why is fraud detection relevant?
 Billions of dollars are lost annually due to credit card fraud, and this is an issue that is constantly increasing since it has become more accessible because of the digitalization of the payment processes. Fraud is one of the biggest causes for financial losses and the first step in trying to understand and try to stop it from happening is risk assessment. The rise of these transactions is what makes it a matter that needs to be taken more seriously into consideration and an efficient fraud detection model is of the highest importance. Fraud detection is a central part in the prevention of future fraud from taking place, by analyzing the past data and finding certain patterns and information that can aid into the further understanding of the fraudulent processes. By detecting and looking at the previous fraudulent activity, we can implement certain strategies that will minimize future losses. By incorporating their findings, companies can learn from fraud that has taken place and create a system which is more able to detect fraud as soon as it happens, create a warning, or even prevent it from happening.
 
 ## Descriptive analysis of the data set
@@ -163,6 +174,9 @@ From the robustness of the different beta coefficients, we can see how the beta 
 ![](figs/robbetasignf.png)
 
 The second plot provides us with only significant beta coefficients and we can see that the variables our model predicted to be significant are: V4, V8, V10, V12, V13, V14 and V16. Only the variable V4 has a positive beta coefficient, meaning that an increase in this variable increases the probability of our transaction being fraudulent. The others have a average beta coefficient which is negative, meaning that they decrease the probability of our transaction being fraudulent.
+
+## Notes
+The dataset included in this repository does not contain all the 284,807 transactions, but only 60K transactions due to the size of the file. Hence, the models might look different with the dataset included in this repository. The original dataset can be obtained from [kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud).
 
 ## Authors
 Ema Vargova, Luka Corsovic 
