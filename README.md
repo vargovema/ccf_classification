@@ -80,13 +80,13 @@ The benefit of using the logistic regression is that the results which we get, u
 
 ### Regularized logistic regression in Lagrangian form
 
-The regularized logistic regression model works similarly to the logistic regression model, just that now we add a constraint to the beta coefficients of the different explanatory variables. We do this, so that we can end up with a constrained optimization problem, which will then help us to "kick out" certain explanatory variables which do not explain the response variable sufficiently enough. The formula is given by:
+The regularized logistic regression model works similarly to the logistic regression model, just that now we add a constraint to the beta coefficients of the different explanatory variables. We do this, so that we can end up with a constrained optimization problem, which will then help us to kick out certain explanatory variables which do not explain the response variable sufficiently enough. The formula is given by:
 
 $$ \max_{\beta_0, \beta} \, \{ \sum_{i = 1}^n Y_i (\beta_0 + \beta'X_i) - \log(1 + e^{\beta_0 + \beta' X_i})  - \lambda \sum_{k = 1}^d |\beta_k| \} $$
 
 The term $\lambda$ is chosen by us. As said previously, the penalty term will result in some variables being equal to zero, and this result in a variable selection.
 
-As the penalized regression model is similar to the logistic regression model the same pros and cons apply, with the addition that the penalized regression model allows for a bigger bias in the data by kicking out certain regressors if the model deems to not be "relevant enough". However, this can also be viewed as a benefit, as it provides us with less explanatory variables to look at, and a simpler model to predict.
+As the penalized regression model is similar to the logistic regression model the same pros and cons apply, with the addition that the penalized regression model allows for a bigger bias in the data by kicking out certain regressors if the model deems to not be relevant enough. However, this can also be viewed as a benefit, as it provides us with less explanatory variables to look at, and a simpler model to predict.
 
 Based on the lined out reasons, we believe the regularized logistic regression to be the best model to use in order to detect credit card fraud. It does take a lot of computational power to run it, but as credit card fraud is a serious issue, we believe that this model regardless of its complexity, provides the best results which will help us to identify which transactions where indeed fraudulent, by providing us only the most important variables, also defined as regressors previously, which help distinguish fraudulent transactions from non-fraudulent ones.
 
@@ -161,7 +161,7 @@ for(i in 1 : n_ests) {
 }
 ```
 
-For the next step, we used the output of the resampling which we mentioned earlier. From this we received two different data sets; a train and a test data set. Using the train data set, we created a regression model, which we tested using the test data set. What we did, is we put in the values of the different explanatory variables from the test dataset into the established model, in order to receive "predictions" on what the Y value should be in this case. Then we compared the modeled Y value to the actual Y value of the test data set. We ran this 10 times, resampling the data every time, in order to ensure maximum accuracy.
+For the next step, we used the output of the resampling which we mentioned earlier. From this we received two different data sets; a train and a test data set. Using the train data set, we created a regression model, which we tested using the test data set. What we did, is we put in the values of the different explanatory variables from the test dataset into the established model, in order to receive predictions on what the Y value should be in this case. Then we compared the modeled Y value to the actual Y value of the test data set. We ran this 10 times, resampling the data every time, in order to ensure maximum accuracy.
 
 ![](figs/acc.png) 
 
@@ -176,7 +176,7 @@ From the robustness of the different beta coefficients, we can see how the beta 
 The second plot provides us with only significant beta coefficients and we can see that the variables our model predicted to be significant are: V4, V8, V10, V12, V13, V14 and V16. Only the variable V4 has a positive beta coefficient, meaning that an increase in this variable increases the probability of our transaction being fraudulent. The others have a average beta coefficient which is negative, meaning that they decrease the probability of our transaction being fraudulent.
 
 ## Notes
-The dataset included in this repository does not contain all the 284,807 transactions, but only 60K transactions due to the size of the file. Hence, the models might look different with the dataset included in this repository. The original dataset can be obtained from [kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud).
+The dataset included in this repository does not contain all the 284,807 transactions, but only 60K transactions due to the size of the file. Hence, the models might look different with the dataset included in this repository. The original dataset can be obtained from [kaggle](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud) (accessed on 14.10.2020).
 
 ## Authors
 Ema Vargova, Luka Corsovic 
